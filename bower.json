@@ -1,0 +1,22 @@
+{
+    "name": "emberjs sample",
+    "version": "0.0.1",
+    "authors": [
+        "Baptiste Meurant <baptiste.meurant@gmail.com>"
+    ],
+    "license": "Apache V2",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "ember": "~1.2",
+        "ember-data": "~1.0.0-beta.4",
+        "bootstrap": "~3.0.3",
+        "jquery": "2.0.3"
+    }
+}
