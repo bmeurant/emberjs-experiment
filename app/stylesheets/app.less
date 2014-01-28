@@ -70,3 +70,42 @@
     padding: 10px;
   }
 }
+
+.series-albums {
+  ul {
+    margin: 20px 0;
+    padding-left: 10px;
+  }
+
+  li {
+    list-style: none;
+    .bordered-zone();
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: @brand-primary;
+    color: @body-bg;
+
+    h4 {
+      margin-top: 0;
+    }
+
+    .img-thumbnail {
+      max-height: 70px;
+      border: none;
+      padding: 2px;
+    }
+
+    dl.dl-horizontal.album-desc {
+      margin-bottom: 0;
+
+      dt {
+        width: 75px;
+        text-align: left;
+      }
+
+      dd {
+        margin-left: auto;
+      }
+    }
+  }
+}
