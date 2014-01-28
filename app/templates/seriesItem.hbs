@@ -17,5 +17,9 @@
 </div>
 
 <div class="col-xs-12 col-md-4 series-albums">
-    {{view App.AlbumsView contentBinding="albums"}}
+    <ul>
+        {{#each albums}}
+            {{partial 'partials/albumItem'}}
+        {{/each}}
+    </ul>
 </div>
