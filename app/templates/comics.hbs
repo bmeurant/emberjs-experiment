@@ -1,0 +1,19 @@
+<div class="col-xs-12 col-md-3">
+    <h2>Comics list</h2>
+
+    <ul class="comics-listing">
+        {{#each series in controller}}
+            <li class="comics-item">
+                {{#link-to 'series' series title=series.title class=''}}
+                    {{series.title}}
+                {{/link-to}}
+            </li>
+        {{else}}
+            <li>no comics… :-(</li>
+        {{/each}}
+    </ul>
+
+    <span>Number of comics: {{comicsCount}}</span>
+</div>
+
+{{outlet}}
