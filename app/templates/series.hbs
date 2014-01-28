@@ -1,16 +1,19 @@
-<div class="col-xs-12 col-md-4 series-details">
-    <h3>{{title}}</h3>
-    <img {{bind-attr src="coverUrl"}} alt="Series's first album cover" class="cover img-responsive img-thumbnail"/>
-    <dl class="series-desc dl-horizontal">
-        <dt>Scriptwriter</dt>
-        <dd>{{scriptwriter}} </dd>
-        <dt>Illustrator</dt>
-        <dd>{{illustrator}}</dd>
-        <dt>Publisher</dt>
-        <dd>{{publisher}}</dd>
-        <dt>Publication Date</dt>
-        <dd>{{format-date "MMMM YYYY" publicationDate}}</dd>
-        <dt>Volumes</dt>
-        <dd>{{volumes}}</dd>
-    </dl>
+<div class="col-xs-12 col-md-3">
+    <h2>Comics list</h2>
+
+    <ul class="comics-listing">
+        {{#each series in controller}}
+            <li class="comics-item">
+                {{#link-to 'seriesItem' series title=series.title class=''}}
+                    {{series.title}}
+                {{/link-to}}
+            </li>
+        {{else}}
+            <li>no comics… :-(</li>
+        {{/each}}
+    </ul>
+
+    <span>Number of comics: {{seriessCount}}</span>
 </div>
+
+{{outlet}}
