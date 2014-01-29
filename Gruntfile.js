@@ -49,7 +49,7 @@ module.exports = function (grunt) {
                 tasks: ['build']
             },
             templates: {
-                files: ['app/templates/*.hbs'],
+                files: ['app/templates/**/*.hbs'],
                 tasks: ['build']
             },
             styles: {
