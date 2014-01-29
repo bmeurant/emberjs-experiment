@@ -19,5 +19,10 @@ App.SeriesItemIndexRoute = Ember.Route.extend({
 App.SeriesItemEditRoute = Ember.Route.extend({
     model: function () {
         return this.modelFor('seriesItem');
+    },
+    actions: {
+        cancel: function(){
+            this.transitionTo('seriesItem');
+        }
     }
 });

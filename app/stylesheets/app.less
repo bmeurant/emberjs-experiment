@@ -43,18 +43,42 @@
   .bordered-zone();
   text-align: center;
 
-  .btn.edit {
-    float: right;
-    padding: 0;
-    margin-top: 10px;
-    border: none;
-    background-color: transparent;
-    color: white;
-    font-size: 30px;
+  .btn {
+    &.btn-icon {
+      float: right;
+      padding: 2px;
+      line-height: 1;
+      margin-top: 10px;
+      border: none;
+      font-size: 25px;
+
+      i {
+        width: 25px;
+      }
+    }
+
+    &.btn-default {
+      background-color: @body-bg;
+      color: @brand-primary;
+    }
+
+    &.btn-success {
+      background-color: @brand-success;
+      color: @body-bg;
+    }
+
+    &.btn-danger {
+      background-color: @brand-danger;
+      color: @body-bg;
+      margin-right: 5px;
+    }
   }
 
   h3 {
     color: @body-bg;
+    margin-top: 15px;
+    text-align: left;
+    margin-bottom: 13px;
   }
 
   .series-desc {
@@ -78,6 +102,28 @@
   .cover {
     max-height: 250px;
     padding: 10px;
+  }
+
+  form {
+    .title {
+      margin: 10px 0 10px;
+      width: 80%;
+      text-align: left;
+      font-size: 24px;
+    }
+
+    .btn {
+      &.btn-icon {
+        margin-top: 2px;
+      }
+    }
+
+    .series-desc {
+      margin-bottom: 10px;
+      .form-group {
+        margin-bottom: 2px;
+      }
+    }
   }
 }
 
