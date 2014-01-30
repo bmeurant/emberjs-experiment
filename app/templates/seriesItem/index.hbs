@@ -1,16 +1,18 @@
-<button {{action "edit"}} class="btn btn-default btn-icon edit"><i class="fa fa-pencil"></i></button>
-<h3>{{title}}</h3>
-<img {{bind-attr src="coverUrl"}} alt="Series's first album cover" class="cover img-responsive img-thumbnail"/>
-<dl class="series-desc dl-horizontal">
-    <dt>Scriptwriter</dt>
-    <dd>{{scriptwriter}} </dd>
-    <dt>Illustrator</dt>
-    <dd>{{illustrator}}</dd>
-    <dt>Publisher</dt>
-    <dd>{{publisher}}</dd>
-    <dt>Volumes</dt>
-    <dd>{{albums.length}}</dd>
-</dl>
-<p class="series-desc">
-    {{summary}}
-</p>
+<div class="col-xs-12 col-md-5 series-details">
+    <button {{action "edit"}} class="btn btn-default btn-icon edit"><i class="fa fa-pencil"></i></button>
+    <h3>{{title}}</h3>
+    <img {{bind-attr src="coverUrl"}} alt="Series's first album cover" class="cover img-responsive img-thumbnail"/>
+    <dl class="series-desc dl-horizontal">
+        <dt>Scriptwriter</dt>
+        <dd>{{scriptwriter}} </dd>
+        <dt>Illustrator</dt>
+        <dd>{{illustrator}}</dd>
+        <dt>Publisher</dt>
+        <dd>{{publisher}}</dd>
+        <dt>Volumes</dt>
+        <dd>{{albums.length}}</dd>
+    </dl>
+    <p class="series-desc">
+        {{summary}}
+    </p>
+</div>

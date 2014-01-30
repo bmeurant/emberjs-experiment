@@ -26,6 +26,7 @@ App.ValidatedFormComponent = Ember.Component.extend({
 
     submit: function() {
         this.get('model').validate().then(this.acceptSubmit.bind(this), this.rejectSubmit.bind(this));
+        return false;
     }
 
 });

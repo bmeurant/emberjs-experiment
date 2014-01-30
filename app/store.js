@@ -1,4 +1,4 @@
-App.ApplicationAdapter = DS.FixtureAdapter;
+App.ApplicationAdapter = DS.FixtureAdapter.extend();
 
 // fixes bug with hasMany
 // http://discuss.emberjs.com/t/ember-data-fixture-adapter-saving-record-loses-has-many-relationships/2821

@@ -5,11 +5,11 @@
   border-radius: 6px;
 }
 
-.comics-listing {
+.series-listing {
   margin: 20px 0;
   padding-left: 0;
 
-  .comics-item {
+  .series-item {
     list-style: none;
     border: solid 1px #e5e5e5;
     border-bottom: none;
@@ -34,7 +34,14 @@
         color: @body-bg;
         text-decoration: none;
       }
+
+      &.add {
+        text-align: center;
+        color: @gray-light;
+        background-color: @gray-lighter;
+      }
     }
+
   }
 }
 
@@ -107,15 +114,25 @@
 
   form {
     .title {
-      margin: 10px 0 10px;
-      width: 80%;
-      text-align: left;
-      font-size: 24px;
+      margin-left: 0;
+      margin-right: 0;
+      margin-bottom: 0;
+
+      input {
+        margin: 10px 0 10px;
+        width: 80%;
+        text-align: left;
+        font-size: 24px;
+      }
+
+      .help-block {
+        text-align: left;
+      }
     }
 
     .btn {
       &.btn-icon {
-        margin-top: 2px;
+        margin-top: 12px;
       }
     }
 
