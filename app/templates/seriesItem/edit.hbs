@@ -1,5 +1,5 @@
-<form class="form-horizontal">
-    <button type="submit" {{action "submit"}} class="btn btn-success btn-icon submit">
+{{#validated-form class="form-horizontal" model=model action="submit"}}
+    <button type="submit" class="btn btn-success btn-icon submit">
         <i class="fa fa-check"></i>
     </button>
     <button type="cancel" {{action "cancel"}} class="btn btn-danger btn-icon cancel">
@@ -11,23 +11,23 @@
     <div class="series-desc">
         <div class="form-group">
             <label for="scriptwriter" class="col-sm-3 control-label">Scriptwriter</label>
-
             <div class="col-sm-9">
-                {{input id="scriptwriter" type="text" value=scriptwriter class="form-control"}}
+                {{input id="scriptwriter" type="text" value=scriptwriter class="form-control" required="required"}}
+                <span class="help-block"></span>
             </div>
         </div>
         <div class="form-group">
             <label for="illustrator" class="col-sm-3 control-label">Illustrator</label>
-
             <div class="col-sm-9">
                 {{input id="illustrator" type="text" value=illustrator class="form-control"}}
+                <span class="help-block"></span>
             </div>
         </div>
         <div class="form-group">
             <label for="publisher" class="col-sm-3 control-label">Publisher</label>
-
             <div class="col-sm-9">
                 {{input id="publisher" type="text" value=publisher class="form-control"}}
+                <span class="help-block"></span>
             </div>
         </div>
         <div class="form-group">
@@ -41,4 +41,4 @@
     <div class="series-desc">
         {{textarea value=summary class="form-control" rows="10"}}
     </div>
-</form>
+{{/validated-form}}

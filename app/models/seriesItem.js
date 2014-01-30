@@ -1,4 +1,4 @@
-App.SeriesItem = DS.Model.extend({
+App.SeriesItem = DS.Model.extend(Ember.Validations.Mixin, {
     title               : DS.attr('string'),
     scriptwriter        : DS.attr('string'),
     illustrator         : DS.attr('string'),
@@ -6,4 +6,25 @@ App.SeriesItem = DS.Model.extend({
     coverUrl            : DS.attr('string'),
     summary             : DS.attr('string'),
     albums              : DS.hasMany('album', {async: true})
+});
+
+App.SeriesItem.reopen({
+    validations: {
+        title: {
+            presence: true,
+            length: { minimum: 5 }
+        },
+        scriptwriter: {
+            presence: true,
+            length: { minimum: 5 }
+        },
+        illustrator: {
+            presence: true,
+            length: { minimum: 5 }
+        },
+        publisher: {
+            presence: true,
+            length: { minimum: 5 }
+        }
+    }
 });

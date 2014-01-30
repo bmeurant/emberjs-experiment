@@ -33,6 +33,11 @@ module.exports = function (grunt) {
                 files: [
                     {expand: true, cwd: 'static/', src: ['**/*.*'], dest: 'build/static/'}
                 ]
+            },
+            libs: {
+                files: [
+                    {expand: true, cwd: 'libs/', src: ['**/*.*'], dest: 'build/libs/'}
+                ]
             }
         },
         connect: {
