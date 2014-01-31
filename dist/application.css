@@ -5958,6 +5958,10 @@ td.visible-print {
   border: solid 1px #e5e5e5;
   border-radius: 6px;
 }
+.sources {
+  margin-top: 20px;
+  font-size: 18px;
+}
 .btn.btn-icon {
   float: right;
   padding: 2px;

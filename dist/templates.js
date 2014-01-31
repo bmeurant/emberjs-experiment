@@ -4,7 +4,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   var buffer = '', stack1;
 
 
-  data.buffer.push("<div class=\"app container\">\r\n    <h1>Comic Books Library</h1>\r\n    <div class=\"row\">\r\n        ");
+  data.buffer.push("<div class=\"app container\">\r\n    <span class=\"sources pull-right\"><a href=\"https://github.com/bmeurant/emberjs-experiment\"><i class=\"fa fa-github\"></i> View sources on github</a></span>\r\n    <h1>Comic Books Library</h1>\r\n    <div class=\"row\">\r\n        ");
   stack1 = helpers._triageMustache.call(depth0, "outlet", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\r\n    </div>\r\n</div>");
