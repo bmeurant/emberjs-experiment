@@ -1,8 +1,13 @@
 <div class="col-xs-12 col-md-3">
     <h2>Comics series</h2>
 
+    {{#view App.SeriesFilterView}}
+        {{input type=text value=filter class="filter form-control"}}
+        <button {{action "sort" target="view" on="click"}} class="sort btn btn-icon btn-default"><i class="fa fa-caret-down"></i></button>
+    {{/view}}
+
     <ul class="series-listing">
-        {{#each series in controller}}
+        {{#each series in filteredContent}}
             <li class="series-item">
                 {{#link-to 'seriesItem' series title=series.title}}
                     {{series.title}}
@@ -12,7 +17,7 @@
         <li class="series-item">{{#link-to 'series.create' title="add series" class="add"}}<i class="fa fa-2x fa-plus-square"></i>{{/link-to}}</li>
     </ul>
 
-    <span>Number of series: {{seriesCount}}</span>
+    <span>Number of series: {{filteredContent.length}}</span>
 </div>
 
 {{outlet}}

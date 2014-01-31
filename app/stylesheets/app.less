@@ -5,6 +5,55 @@
   border-radius: 6px;
 }
 
+.btn {
+  &.btn-icon {
+    float: right;
+    padding: 2px;
+    line-height: 1;
+    margin-top: 10px;
+    border: none;
+    font-size: 25px;
+
+    i {
+      width: 25px;
+    }
+  }
+
+  &.btn-default {
+    background-color: @body-bg;
+    color: @brand-primary;
+  }
+
+  &.btn-success {
+    background-color: @brand-success;
+    color: @body-bg;
+  }
+
+  &.btn-danger {
+    background-color: @brand-danger;
+    color: @body-bg;
+    margin-right: 5px;
+  }
+}
+
+.filter {
+  display: inline-block;
+  width: 80%
+}
+
+.sort {
+  float: right;
+
+  &.btn.btn-icon {
+    margin-top: 3px;
+
+    &.btn-default {
+      background-color: @brand-primary;
+      color: @body-bg;
+    }
+  }
+}
+
 .series-listing {
   margin: 20px 0;
   padding-left: 0;
@@ -49,37 +98,6 @@
   background-color: @brand-primary;
   .bordered-zone();
   text-align: center;
-
-  .btn {
-    &.btn-icon {
-      float: right;
-      padding: 2px;
-      line-height: 1;
-      margin-top: 10px;
-      border: none;
-      font-size: 25px;
-
-      i {
-        width: 25px;
-      }
-    }
-
-    &.btn-default {
-      background-color: @body-bg;
-      color: @brand-primary;
-    }
-
-    &.btn-success {
-      background-color: @brand-success;
-      color: @body-bg;
-    }
-
-    &.btn-danger {
-      background-color: @brand-danger;
-      color: @body-bg;
-      margin-right: 5px;
-    }
-  }
 
   h3 {
     color: @body-bg;
