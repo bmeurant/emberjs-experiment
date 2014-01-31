@@ -9,42 +9,36 @@ module.exports = function (grunt) {
                     yuicompress: true
                 },
                 files: {
-                    'build/application.css': 'app/stylesheets/app.less'
+                    'dist/application.css': 'app/stylesheets/app.less'
                 }
             }
         },
         copy: {
             bower: {
                 files: [
-                    {expand: true, cwd: 'bower_components/jquery/', src: ['jquery.min.*'], dest: 'build/libs/'},
-                    {expand: true, cwd: 'bower_components/handlebars/', src: ['handlebars.min.js'], dest: 'build/libs/'},
-                    {expand: true, cwd: 'bower_components/ember/', src: ['ember.js'], dest: 'build/libs/'},
-                    {expand: true, cwd: 'bower_components/ember-data/', src: ['ember-data.js'], dest: 'build/libs/'},
-                    {expand: true, cwd: 'bower_components/bootstrap/dist/css/', src: ['bootstrap.css'], dest: 'build/libs/'},
-                    {expand: true, cwd: 'bower_components/moment/', src: ['moment.js'], dest: 'build/libs/'}
-                ]
-            },
-            index: {
-                files: [
-                    {expand: true, cwd: 'app/', src: ['index.html'], dest: 'build/'}
+                    {expand: true, cwd: 'bower_components/jquery/', src: ['jquery.min.*'], dest: 'dist/libs/'},
+                    {expand: true, cwd: 'bower_components/handlebars/', src: ['handlebars.min.js'], dest: 'dist/libs/'},
+                    {expand: true, cwd: 'bower_components/ember/', src: ['ember.js'], dest: 'dist/libs/'},
+                    {expand: true, cwd: 'bower_components/ember-data/', src: ['ember-data.js'], dest: 'dist/libs/'},
+                    {expand: true, cwd: 'bower_components/bootstrap/dist/css/', src: ['bootstrap.css'], dest: 'dist/libs/'},
+                    {expand: true, cwd: 'bower_components/moment/', src: ['moment.js'], dest: 'dist/libs/'}
                 ]
             },
             static: {
                 files: [
-                    {expand: true, cwd: 'static/', src: ['**/*.*'], dest: 'build/static/'}
+                    {expand: true, cwd: 'static/', src: ['**/*.*'], dest: 'dist/static/'}
                 ]
             },
             libs: {
                 files: [
-                    {expand: true, cwd: 'libs/', src: ['**/*.*'], dest: 'build/libs/'}
+                    {expand: true, cwd: 'libs/', src: ['**/*.*'], dest: 'dist/libs/'}
                 ]
             }
         },
         connect: {
             server: {
                 options: {
-                    port: 9000,
-                    base: 'build'
+                    port: 9000
                 }
             }
         },
@@ -73,7 +67,7 @@ module.exports = function (grunt) {
         concat: {
             javascript: {
                 src: 'app/**/*.js',
-                dest: 'build/application.js'
+                dest: 'dist/application.js'
             }
         },
         emberTemplates: {
@@ -82,7 +76,7 @@ module.exports = function (grunt) {
                     templateBasePath: /app\/templates\//
                 },
                 files: {
-                    'build/templates.js': 'app/**/*.hbs'
+                    'dist/templates.js': 'app/**/*.hbs'
                 }
             }
         }
