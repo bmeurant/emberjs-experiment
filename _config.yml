@@ -1,4 +1,2 @@
 name: emberjs sample experimentation project
-exclude: [package.json, bower.json, node_modules, bower_components, Gruntfile.js, README.md, app, libs, static]
-include: [build/libs, build/static]
-baseurl: /build
+exclude: [package.json, bower.json, node_modules, bower_components, Gruntfile.js, README.md, app]
