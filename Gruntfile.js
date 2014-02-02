@@ -60,7 +60,7 @@ module.exports = function (grunt) {
                 tasks: ['build']
             },
             indexHTML: {
-                files: ['app/index.html'],
+                files: ['index.html'],
                 tasks: ['build']
             }
         },
