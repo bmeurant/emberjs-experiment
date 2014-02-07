@@ -3,7 +3,7 @@ App.SeriesItem = DS.Model.extend(Ember.Validations.Mixin, {
     scriptwriter        : DS.attr('string'),
     illustrator         : DS.attr('string'),
     publisher           : DS.attr('string'),
-    coverUrl            : DS.attr('string', {defaultValue: '/static/images/series/covers/default.jpg'}),
+        coverUrl            : DS.attr('string', {defaultValue: '/static/images/series/covers/default.jpg'}),
     summary             : DS.attr('string'),
     albums              : DS.hasMany('album', {async: true})
 });

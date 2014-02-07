@@ -7,15 +7,15 @@ App.ValidatedFormComponent = Ember.Component.extend({
     },
 
     clearErrors: function () {
-        $('.form-group').removeClass("has-error");
-        $('.help-block').text('');
+        this.$('.form-group').removeClass("has-error");
+        this.$('.help-block').text('');
     },
 
     rejectSubmit: function () {
         this.clearErrors();
         var errors = this.get('model').get('.errors');
 
-        $('input').each(function(index, value) {
+        this.$('input').each(function(index, value) {
             if (errors.hasOwnProperty(value.id) && errors[value.id].length > 0) {
                 var $formGroup =  $(value).closest('.form-group');
                 $formGroup.addClass('has-error');
