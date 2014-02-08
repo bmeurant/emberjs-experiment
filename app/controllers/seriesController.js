@@ -1,4 +1,4 @@
-App.SeriesController = Em.ArrayController.extend({
+App.SeriesController = Ember.ArrayController.extend({
     content: [],
     filter: "",
     sortAscending: true,

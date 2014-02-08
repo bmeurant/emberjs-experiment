@@ -3,13 +3,13 @@
     <h3>{{title}}</h3>
     <img {{bind-attr src="coverUrl"}} alt="Series's first album cover" class="cover img-responsive img-thumbnail"/>
     <dl class="series-desc dl-horizontal">
-        <dt>Scriptwriter</dt>
+        <dt>{{t seriesItem.scriptwriter}}</dt>
         <dd>{{scriptwriter}} </dd>
-        <dt>Illustrator</dt>
+        <dt>{{t seriesItem.illustrator}}</dt>
         <dd>{{illustrator}}</dd>
-        <dt>Publisher</dt>
+        <dt>{{t seriesItem.publisher}}</dt>
         <dd>{{publisher}}</dd>
-        <dt>Volumes</dt>
+        <dt>{{t seriesItem.volumes}}</dt>
         <dd>{{albums.length}}</dd>
     </dl>
     <p class="series-desc">
