@@ -37,6 +37,12 @@ module.exports = function (grunt) {
                 ]
             }
         },
+        karma: {
+            unit: {
+                configFile: 'test/config/karma.conf.js',
+                background: true
+            }
+        },
         connect: {
             server: {
                 options: {
@@ -64,6 +70,10 @@ module.exports = function (grunt) {
             indexHTML: {
                 files: ['index.html'],
                 tasks: ['build']
+            },
+            karma: {
+                files: ['app/**/*.js', 'test/unit/**/*.js'],
+                tasks: ['karma:unit:run']
             }
         },
         concat: {
@@ -90,8 +100,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-ember-templates');
+    grunt.loadNpmTasks('grunt-karma');
 
     grunt.registerTask('build', ['less:compile', 'copy', 'concat', 'emberTemplates']);
-    grunt.registerTask('serve', ['connect', 'build', 'watch']);
+    grunt.registerTask('serve', ['connect', 'build', 'karma:unit', 'watch']);
     grunt.registerTask('default', ['serve']);
 };
