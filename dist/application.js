@@ -1,4 +1,9 @@
-window.App = Ember.Application.create();
+CLDR.defaultLanguage = 'en';
+Ember.I18n.set('bindTranslations', true);
+
+window.App = Ember.Application.create({
+    currentLangBinding: moment.lang('en')
+});
 App.ValidatedFormComponent = Ember.Component.extend({
     tagName: 'form',
 
@@ -31,7 +36,16 @@ App.ValidatedFormComponent = Ember.Component.extend({
     }
 
 });
-App.SeriesController = Em.ArrayController.extend({
+App.ApplicationController = Ember.ObjectController.extend({
+    actions:{
+        changeLanguage: function(lang){
+            CLDR.defaultLanguage = lang;
+            Ember.I18n.set('translations', $.extend({}, App.I18n.labels[lang]));
+            App.set('currentLang', moment.lang(lang));
+        }
+    }
+});
+App.SeriesController = Ember.ArrayController.extend({
     content: [],
     filter: "",
     sortAscending: true,
@@ -52,9 +66,57 @@ App.SeriesController = Em.ArrayController.extend({
         }
     }
 });
-Ember.Handlebars.registerBoundHelper('format-date', function(format, date) {
+Ember.Handlebars.registerBoundHelper('format', function(format, date, options) {
+    var currentContext = (options.contexts && options.contexts[0]) || this;
+    var view = options.data.view;
+    var bindView = view.get('_childViews.lastObject');
+    view.registerObserver(currentContext, 'App.currentLang', bindView, bindView.rerender);
+
     return moment(date).format(format);
 });
+App.I18n = {
+    labels: {
+        'en': {
+            'app.title': 'Comic books library',
+            'sources.view': 'View sources on github',
+            'series': {
+                'title': 'Comics series',
+                'number': 'Number of series:'
+            },
+            'album': {
+                'volume': 'volume',
+                'date': 'date'
+            },
+            'seriesItem': {
+                'scriptwriter': 'Scriptwriter',
+                'illustrator': 'Illustrator',
+                'publisher': 'Publisher',
+                'volumes': 'Volumes'
+            }
+        },
+        'fr': {
+            'app.title': 'Bibliothèque de bandes dessinées',
+            'sources.view': 'Voir les sources sur github',
+            'series': {
+                'title': 'Series',
+                'number': 'Nombre de series:'
+            },
+            'album': {
+                'volume': 'tome',
+                'date': 'date'
+            },
+            'seriesItem': {
+                'scriptwriter': 'Scénariste',
+                'illustrator': 'Dessinateur',
+                'publisher': 'Editeur',
+                'volumes': 'Volumes'
+            }
+        }
+    }
+};
+
+Ember.I18n.set('translations', $.extend({}, App.I18n.labels.en));
+
 App.Album = DS.Model.extend({
     title               : DS.attr('string'),
     scriptwriter        : DS.attr('string'),

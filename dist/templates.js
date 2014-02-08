@@ -1,10 +1,18 @@
 Ember.TEMPLATES["application"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1;
+  var buffer = '', stack1, helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
 
-  data.buffer.push("<div class=\"app container\">\r\n    <span class=\"sources pull-right\"><a href=\"https://github.com/bmeurant/emberjs-experiment\"><i class=\"fa fa-github\"></i> View sources on github</a></span>\r\n    <h1>Comic Books Library</h1>\r\n    <div class=\"row\">\r\n        ");
+  data.buffer.push("<div class=\"app container\">\r\n    <span class=\"sources pull-right\"><a href=\"https://github.com/bmeurant/emberjs-experiment\"><i class=\"fa fa-github\"></i> ");
+  data.buffer.push(escapeExpression((helper = helpers.t || (depth0 && depth0.t),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "sources.view", options) : helperMissing.call(depth0, "t", "sources.view", options))));
+  data.buffer.push("</a></span>\r\n    <h1>");
+  data.buffer.push(escapeExpression((helper = helpers.t || (depth0 && depth0.t),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "app.title", options) : helperMissing.call(depth0, "t", "app.title", options))));
+  data.buffer.push("</h1>\r\n    <button ");
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "changeLanguage", "fr", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0,depth0],types:["STRING","STRING"],data:data})));
+  data.buffer.push(" class=\"btn btn-default btn-xs\">Français</button>\r\n    <button ");
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "changeLanguage", "en", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0,depth0],types:["STRING","STRING"],data:data})));
+  data.buffer.push(" class=\"btn btn-default btn-xs\">English</button>\r\n    <div class=\"row\">\r\n        ");
   stack1 = helpers._triageMustache.call(depth0, "outlet", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\r\n    </div>\r\n</div>");
@@ -39,11 +47,15 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   data.buffer.push(" alt=\"Album cover\" class=\"col-xs-2 cover img-responsive img-thumbnail\"/>\r\n\r\n    <div class=\"col-xs-10\">\r\n        <h4>");
   stack1 = helpers._triageMustache.call(depth0, "title", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</h4>\r\n        <dl class=\"album-desc dl-horizontal\">\r\n            <dt>volume</dt><dd>");
+  data.buffer.push("</h4>\r\n        <dl class=\"album-desc dl-horizontal\">\r\n            <dt>");
+  data.buffer.push(escapeExpression((helper = helpers.t || (depth0 && depth0.t),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "album.volume", options) : helperMissing.call(depth0, "t", "album.volume", options))));
+  data.buffer.push("</dt><dd>");
   stack1 = helpers._triageMustache.call(depth0, "number", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</dd>\r\n            <dt>date</dt><dd>");
-  data.buffer.push(escapeExpression((helper = helpers['format-date'] || (depth0 && depth0['format-date']),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "MMMM YYYY", "publicationDate", options) : helperMissing.call(depth0, "format-date", "MMMM YYYY", "publicationDate", options))));
+  data.buffer.push("</dd>\r\n            <dt>");
+  data.buffer.push(escapeExpression((helper = helpers.t || (depth0 && depth0.t),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "album.date", options) : helperMissing.call(depth0, "t", "album.date", options))));
+  data.buffer.push("</dt><dd>");
+  data.buffer.push(escapeExpression((helper = helpers.format || (depth0 && depth0.format),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "MMMM YYYY", "publicationDate", options) : helperMissing.call(depth0, "format", "MMMM YYYY", "publicationDate", options))));
   data.buffer.push("</dd>\r\n        </dl>\r\n    </div>\r\n</li>");
   return buffer;
   
@@ -81,7 +93,9 @@ function program4(depth0,data) {
   data.buffer.push("\r\n                <i class=\"fa fa-2x fa-plus-square\"></i>\r\n            ");
   }
 
-  data.buffer.push("<div class=\"col-xs-12 col-md-3\">\r\n    <h2>Comics series</h2>\r\n\r\n    ");
+  data.buffer.push("<div class=\"col-xs-12 col-md-3\">\r\n    <h2>");
+  data.buffer.push(escapeExpression((helper = helpers.t || (depth0 && depth0.t),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "series.title", options) : helperMissing.call(depth0, "t", "series.title", options))));
+  data.buffer.push("</h2>\r\n\r\n    ");
   data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
     'type': ("text"),
     'value': ("filter"),
@@ -102,7 +116,9 @@ function program4(depth0,data) {
     'class': ("add")
   },hashTypes:{'title': "STRING",'class': "STRING"},hashContexts:{'title': depth0,'class': depth0},inverse:self.noop,fn:self.program(4, program4, data),contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "series.create", options) : helperMissing.call(depth0, "link-to", "series.create", options));
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\r\n        </li>\r\n    </ul>\r\n\r\n    <span>Number of series: ");
+  data.buffer.push("\r\n        </li>\r\n    </ul>\r\n\r\n    <span>");
+  data.buffer.push(escapeExpression((helper = helpers.t || (depth0 && depth0.t),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "series.number", options) : helperMissing.call(depth0, "t", "series.number", options))));
+  data.buffer.push(" ");
   stack1 = helpers._triageMustache.call(depth0, "filteredContent.length", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</span>\r\n</div>\r\n\r\n");
@@ -212,7 +228,7 @@ function program1(depth0,data) {
 Ember.TEMPLATES["seriesItem/index"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, escapeExpression=this.escapeExpression;
+  var buffer = '', stack1, helper, options, escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing;
 
 
   data.buffer.push("<div class=\"col-xs-12 col-md-5 series-details\">\r\n    <button ");
@@ -224,16 +240,24 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
     'src': ("coverUrl")
   },hashTypes:{'src': "STRING"},hashContexts:{'src': depth0},contexts:[],types:[],data:data})));
-  data.buffer.push(" alt=\"Series's first album cover\" class=\"cover img-responsive img-thumbnail\"/>\r\n    <dl class=\"series-desc dl-horizontal\">\r\n        <dt>Scriptwriter</dt>\r\n        <dd>");
+  data.buffer.push(" alt=\"Series's first album cover\" class=\"cover img-responsive img-thumbnail\"/>\r\n    <dl class=\"series-desc dl-horizontal\">\r\n        <dt>");
+  data.buffer.push(escapeExpression((helper = helpers.t || (depth0 && depth0.t),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "seriesItem.scriptwriter", options) : helperMissing.call(depth0, "t", "seriesItem.scriptwriter", options))));
+  data.buffer.push("</dt>\r\n        <dd>");
   stack1 = helpers._triageMustache.call(depth0, "scriptwriter", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push(" </dd>\r\n        <dt>Illustrator</dt>\r\n        <dd>");
+  data.buffer.push(" </dd>\r\n        <dt>");
+  data.buffer.push(escapeExpression((helper = helpers.t || (depth0 && depth0.t),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "seriesItem.illustrator", options) : helperMissing.call(depth0, "t", "seriesItem.illustrator", options))));
+  data.buffer.push("</dt>\r\n        <dd>");
   stack1 = helpers._triageMustache.call(depth0, "illustrator", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</dd>\r\n        <dt>Publisher</dt>\r\n        <dd>");
+  data.buffer.push("</dd>\r\n        <dt>");
+  data.buffer.push(escapeExpression((helper = helpers.t || (depth0 && depth0.t),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "seriesItem.publisher", options) : helperMissing.call(depth0, "t", "seriesItem.publisher", options))));
+  data.buffer.push("</dt>\r\n        <dd>");
   stack1 = helpers._triageMustache.call(depth0, "publisher", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</dd>\r\n        <dt>Volumes</dt>\r\n        <dd>");
+  data.buffer.push("</dd>\r\n        <dt>");
+  data.buffer.push(escapeExpression((helper = helpers.t || (depth0 && depth0.t),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "seriesItem.volumes", options) : helperMissing.call(depth0, "t", "seriesItem.volumes", options))));
+  data.buffer.push("</dt>\r\n        <dd>");
   stack1 = helpers._triageMustache.call(depth0, "albums.length", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</dd>\r\n    </dl>\r\n    <p class=\"series-desc\">\r\n        ");
