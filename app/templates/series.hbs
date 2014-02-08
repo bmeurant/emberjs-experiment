@@ -1,5 +1,5 @@
 <div class="col-xs-12 col-md-3">
-    <h2>Comics series</h2>
+    <h2>{{t series.title}}</h2>
 
     {{input type=text value=filter class="filter form-control"}}
     <button {{action "sort"}} class="sort btn btn-icon btn-default">
@@ -21,7 +21,7 @@
         </li>
     </ul>
 
-    <span>Number of series: {{filteredContent.length}}</span>
+    <span>{{t series.number}} {{filteredContent.length}}</span>
 </div>
 
 {{outlet}}
