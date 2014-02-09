@@ -40,7 +40,7 @@ module.exports = function (grunt) {
         karma: {
             unit: {
                 configFile: 'test/config/karma.conf.js',
-                background: true
+                background: false
             }
         },
         connect: {
@@ -72,7 +72,7 @@ module.exports = function (grunt) {
                 tasks: ['build']
             },
             karma: {
-                files: ['app/**/*.js', 'test/unit/**/*.js'],
+                files: ['app/**/*.js', 'test/unit/*.js'],
                 tasks: ['karma:unit:run']
             }
         },
@@ -103,6 +103,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-karma');
 
     grunt.registerTask('build', ['less:compile', 'copy', 'concat', 'emberTemplates']);
-    grunt.registerTask('serve', ['connect', 'build', 'karma:unit', 'watch']);
+    grunt.registerTask('serve', ['connect', 'build', 'watch']);
     grunt.registerTask('default', ['serve']);
+    grunt.registerTask('tests', ['karma:unit', 'watch']);
 };
