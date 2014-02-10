@@ -23,18 +23,21 @@ test('Displays seven series plus creation element', function () {
 asyncTest('SeriesItem display', function () {
     expect(6);
 
-    var series = App.SeriesItem.store.find('seriesItem');
-    ok(series, "Series list is defined");
+    var seriesId = 1;
+    debugger;
+    var series = Ember.run(function() {
+        return App.SeriesItem.store.find('seriesItem', seriesId);
+    });
+    ok(series, "Series is defined");
 
     series.then(function (series) {
-        var seriesId = 1;
         visit('/series/' + seriesId).then(function () {
-            equal(find('h3').text(), series.content[seriesId - 1].get('title'), 'correct series title');
+            equal(find('h3').text(), series.get('title'), 'correct series title');
             var description = find('.series-desc dd');
-            equal(description.get(0).innerText, series.content[seriesId - 1].get('scriptwriter'), 'correct series scriptwriter');
-            equal(description.get(1).innerText, series.content[seriesId - 1].get('illustrator'), 'correct series illustrator');
-            equal(description.get(2).innerText, series.content[seriesId - 1].get('publisher'), 'correct series publisher');
-            equal(description.get(3).innerText, series.content[seriesId - 1].get('albums.length'), 'correct series volumes');
+            equal(description.get(0).innerText, series.get('scriptwriter'), 'correct series scriptwriter');
+            equal(description.get(1).innerText, series.get('illustrator'), 'correct series illustrator');
+            equal(description.get(2).innerText, series.get('publisher'), 'correct series publisher');
+            equal(description.get(3).innerText, series.get('albums.length'), 'correct series volumes');
         });
 
         start();
