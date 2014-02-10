@@ -24,7 +24,6 @@ asyncTest('SeriesItem display', function () {
     expect(6);
 
     var seriesId = 1;
-    debugger;
     var series = Ember.run(function() {
         return App.SeriesItem.store.find('seriesItem', seriesId);
     });

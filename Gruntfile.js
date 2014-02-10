@@ -105,5 +105,5 @@ module.exports = function (grunt) {
     grunt.registerTask('build', ['less:compile', 'copy', 'concat', 'emberTemplates']);
     grunt.registerTask('serve', ['connect', 'build', 'watch']);
     grunt.registerTask('default', ['serve']);
-    grunt.registerTask('tests', ['karma:unit', 'watch']);
+    grunt.registerTask('tests', ['build', 'karma:unit', 'watch']);
 };
