@@ -125,7 +125,7 @@ App.Album = DS.Model.extend({
     coverName           : DS.attr('string', {defaultValue: 'default.jpg'}),
     series              : DS.belongsTo('seriesItem'),
     coverUrl: function() {
-        return '/dist/static/images/albums/covers/' + this.get('coverName');
+        return 'dist/static/images/albums/covers/' + this.get('coverName');
     }.property('coverName')
 });
 
@@ -138,7 +138,7 @@ App.SeriesItem = DS.Model.extend(Ember.Validations.Mixin, {
     summary             : DS.attr('string'),
     albums              : DS.hasMany('album', {async: true}),
     coverUrl: function() {
-        return '/dist/static/images/series/covers/' + this.get('coverName');
+        return 'dist/static/images/series/covers/' + this.get('coverName');
     }.property('coverName')
 });
 
