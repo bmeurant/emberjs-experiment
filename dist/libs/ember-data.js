@@ -2443,6 +2443,8 @@ DS.Store = Ember.Object.extend({
       recordsByTypeMap.get(record.constructor).push(record);
     });
 
+    var promises = [];
+
     forEach(recordsByTypeMap, function(type, records) {
       var ids = records.mapProperty('id'),
           adapter = this.adapterFor(type);
@@ -2450,8 +2452,9 @@ DS.Store = Ember.Object.extend({
       Ember.assert("You tried to load many records but you have no adapter (for " + type + ")", adapter);
       Ember.assert("You tried to load many records but your adapter does not implement `findMany`", adapter.findMany);
 
-      resolver.resolve(_findMany(adapter, this, type, ids, owner));
+      promises.push(_findMany(adapter, this, type, ids, owner));
     }, this);
+      resolver.resolve(Ember.RSVP.all(promises));
   },
 
   /**

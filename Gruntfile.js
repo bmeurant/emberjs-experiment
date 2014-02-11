@@ -51,35 +51,27 @@ module.exports = function (grunt) {
             }
         },
         watch: {
-            scripts: {
-                files: ['app/**/*.js'],
+            build: {
+                files: ['app/**/*.js', 'app/templates/**/*.hbs', 'app/stylesheets/*.less', 'static/**/*.*', 'index.html'],
                 tasks: ['build']
             },
-            templates: {
-                files: ['app/templates/**/*.hbs'],
-                tasks: ['build']
-            },
-            styles: {
-                files: ['app/stylesheets/*.less'],
-                tasks: ['build']
-            },
-            static: {
-                files: ['static/**/*.*'],
-                tasks: ['build']
-            },
-            indexHTML: {
-                files: ['index.html'],
-                tasks: ['build']
-            },
-            karma: {
+            test: {
                 files: ['app/**/*.js', 'test/unit/*.js'],
                 tasks: ['karma:unit:run']
             }
         },
         concat: {
             javascript: {
-                src: 'app/**/*.js',
+                src: ['app/**/!(*Store).js'],
                 dest: 'dist/application.js'
+            },
+            dev : {
+                src: ['app/fixturesStore.js'],
+                dest: 'dist/store.js'
+            },
+            prod: {
+                src: ['app/**/restStore.js'],
+                dest: 'dist/store.js'
             }
         },
         emberTemplates: {
@@ -102,8 +94,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-ember-templates');
     grunt.loadNpmTasks('grunt-karma');
 
-    grunt.registerTask('build', ['less:compile', 'copy', 'concat', 'emberTemplates']);
-    grunt.registerTask('serve', ['connect', 'build', 'watch']);
+    var env = grunt.option('env') || 'dev';
+
+    grunt.registerTask('build', ['less:compile', 'copy', 'concat:javascript', 'concat:' + env, 'emberTemplates']);
+    grunt.registerTask('serve', ['connect', 'build', 'watch:build']);
     grunt.registerTask('default', ['serve']);
-    grunt.registerTask('tests', ['build', 'karma:unit', 'watch']);
+    grunt.registerTask('tests', ['build', 'concat:dev', 'karma:unit', 'watch']);
 };
