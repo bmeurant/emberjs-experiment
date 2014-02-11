@@ -7,7 +7,7 @@ App.SeriesItem = DS.Model.extend(Ember.Validations.Mixin, {
     summary             : DS.attr('string'),
     albums              : DS.hasMany('album', {async: true}),
     coverUrl: function() {
-        return '/static/images/series/covers/' + this.get('coverName');
+        return '/dist/static/images/series/covers/' + this.get('coverName');
     }.property('coverName')
 });
 
