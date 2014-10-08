@@ -1,0 +1,49 @@
+<div class="col-xs-12 col-md-5 series-details">
+    {{#validated-form class="form-horizontal" model=model action="submit"}}
+        <button type="submit" class="btn btn-success btn-icon submit">
+            <i class="fa fa-check"></i>
+        </button>
+        <button type="cancel" {{action "cancel"}} class="btn btn-danger btn-icon cancel">
+            <i class="fa fa-times"></i>
+        </button>
+        <div class="form-group title">
+            {{input id="title" type="text" value=title class="form-control"}}
+            <span class="help-block"></span>
+        </div>
+        <img {{bind-attr src="coverUrl"}} alt="Series's first album cover" class="cover img-responsive img-thumbnail"/>
+
+        <div class="series-desc">
+            <div class="form-group">
+                <label for="scriptwriter" class="col-sm-3 control-label">Scriptwriter</label>
+                <div class="col-sm-9">
+                    {{input id="scriptwriter" type="text" value=scriptwriter class="form-control" required="required"}}
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="illustrator" class="col-sm-3 control-label">Illustrator</label>
+                <div class="col-sm-9">
+                    {{input id="illustrator" type="text" value=illustrator class="form-control"}}
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="publisher" class="col-sm-3 control-label">Publisher</label>
+                <div class="col-sm-9">
+                    {{input id="publisher" type="text" value=publisher class="form-control"}}
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="albums" class="col-sm-3 control-label">Volumes</label>
+                <span class="col-sm-9">
+                    {{input id="albums" type="text" value=albums.length class="form-control" disabled="disabled"}}
+                </span>
+            </div>
+        </div>
+
+        <div class="series-desc">
+            {{textarea value=summary class="form-control" rows="10"}}
+        </div>
+    {{/validated-form}}
+</div>
