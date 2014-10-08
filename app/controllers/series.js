@@ -8,7 +8,7 @@ export default Ember.ArrayController.extend({
     filteredContent: function() {
         var filter = this.get('filter');
 
-        return this.get('content').filter(function(item, index, enumerable){
+        return this.get('content').filter(function(item){
             if (item.get('title') == undefined) return true;
             return item.get('title').toLowerCase().match(new RegExp(filter.toLowerCase()));
         }).sort(function(a, b) {
