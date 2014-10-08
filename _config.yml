@@ -1,2 +1,0 @@
-name: emberjs sample experimentation project
-exclude: [package.json, bower.json, node_modules, bower_components, Gruntfile.js, README.md, app]

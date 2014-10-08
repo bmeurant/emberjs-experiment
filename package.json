@@ -1,24 +1,34 @@
 {
-  "name": "emberjs-sample",
+  "name": "emberjs-experiment",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.html",
-  "authors": [
-    "Baptiste Meurant <baptiste.meurant@gmail.com>"
-  ],
-  "license": "Apache V2",
-  "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-contrib-less": "~0.9.0",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-contrib-connect": "~0.6.0",
-    "grunt-contrib-copy": "~0.5.0",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-ember-templates": "*",
-    "grunt-karma": "~0.6.2",
-    "karma-qunit": "~0.1.1"
+  "private": true,
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
   },
-  "dependencies": {
-    "grunt-context": "~0.3.3"
+  "scripts": {
+    "start": "ember server",
+    "build": "ember build",
+    "test": "ember test"
+  },
+  "repository": "https://github.com/stefanpenner/ember-cli",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "author": "Baptiste Meurant <baptiste.meurant@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "body-parser": "^1.2.0",
+    "broccoli-asset-rev": "0.3.0",
+    "broccoli-ember-hbs-template-compiler": "^1.6.1",
+    "ember-cli": "0.1.1",
+    "ember-cli-content-security-policy": "0.2.0",
+    "ember-cli-ic-ajax": "0.1.1",
+    "ember-cli-inject-live-reload": "^1.2.2",
+    "ember-cli-less": "^1.0.3",
+    "ember-cli-qunit": "0.1.0",
+    "ember-data": "1.0.0-beta.10",
+    "express": "^4.8.5",
+    "glob": "^4.0.5"
   }
 }
