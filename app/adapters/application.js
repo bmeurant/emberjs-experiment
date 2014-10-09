@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import DS from 'ember-data';
 import config from '../config/environment';
+import RESThubAdapter from './resthub-adapter';
 
 var adapter = DS.FixtureAdapter.extend({});
 
@@ -24,7 +25,7 @@ if (config.environmenet === 'development') {
 }
 
 if (config.environment === 'production') {
-    adapter = DS.RESTAdapter.extend({});
+    adapter = RESThubAdapter;
 }
 
 export default adapter;
