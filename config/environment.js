@@ -40,12 +40,10 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
       ENV.contentSecurityPolicy = {
           'connect-src': "'self' http://localhost:8080",
           'script-src': "'self' http://localhost:8080 'unsafe-eval'"
       };
-
   }
 
   return ENV;

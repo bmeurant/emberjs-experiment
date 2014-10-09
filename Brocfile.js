@@ -4,7 +4,11 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 var pickFiles = require('broccoli-static-compiler');
 var mergeTrees = require('broccoli-merge-trees');
 
-var app = new EmberApp();
+var app = new EmberApp( {
+    fingerprint: {
+       exclude: ['images']
+   }
+});
 
 app.import('bower_components/font-awesome/css/font-awesome.min.css');
 
@@ -19,6 +23,11 @@ app.import('bower_components/jquery/dist/jquery.js');
 app.import('vendor/cldr.js');
 app.import('vendor/ember-i18n.js');
 app.import('vendor/ember-validation.js');
+
+var index = app.legacyFilesToAppend.indexOf('bower_components/handlebars/handlebars.runtime.js');
+if(index) {
+    app.legacyFilesToAppend[index] = 'bower_components/handlebars/handlebars.js';
+}
 
 // Use `app.import` to add additional libraries to the generated
 // output files.
