@@ -21,7 +21,8 @@ var fontTree = pickFiles('bower_components/font-awesome/fonts', {
 app.import('bower_components/moment/moment.js');
 app.import('bower_components/jquery/dist/jquery.js');
 app.import('vendor/cldr.js');
-app.import('vendor/ember-i18n.js');
+app.import('vendor/i18n.js')
+app.import('vendor/translations.js');
 app.import('vendor/ember-validation.js');
 
 var index = app.legacyFilesToAppend.indexOf('bower_components/handlebars/handlebars.runtime.js');
