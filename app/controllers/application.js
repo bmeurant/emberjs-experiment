@@ -6,7 +6,7 @@ export default Ember.ObjectController.extend({
     actions:{
         changeLanguage: function(lang){
             CLDR.defaultLanguage = lang;
-            Ember.I18n.set('translations', $.extend({}, translations.labels[lang]));
+            Ember.I18n.set('translations', Ember.$.extend({}, translations.labels[lang]));
             this.set('currentLang', moment.lang(lang));
         }
     }

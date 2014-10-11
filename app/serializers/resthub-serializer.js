@@ -4,23 +4,23 @@ import DS from 'ember-data';
 var serializer = DS.RESTSerializer.extend({
     extractMeta: function (store, type, payload) {
         if (payload) {
-            if (payload.size != undefined) {
+            if (payload.size !== undefined) {
                 store.metaForType(type, { size: payload.size });  // sets the metadata for "post"
                 delete payload.size;  // keeps ember data from trying to parse "total" as a record
             }
-            if (payload.number != undefined) {
+            if (payload.number !== undefined) {
                 store.metaForType(type, { number: payload.number });  // sets the metadata for "post"
                 delete payload.number;  // keeps ember data from trying to parse "total" as a record
             }
-            if (payload.totalPages != undefined) {
+            if (payload.totalPages !== undefined) {
                 store.metaForType(type, { totalPages: payload.totalPages });  // sets the metadata for "post"
                 delete payload.totalPages;  // keeps ember data from trying to parse "total" as a record
             }
-            if (payload.numberOfElements != undefined) {
+            if (payload.numberOfElements !== undefined) {
                 store.metaForType(type, { numberOfElements: payload.numberOfElements });  // sets the metadata for "post"
                 delete payload.numberOfElements;  // keeps ember data from trying to parse "total" as a record
             }
-            if (payload.totalElements != undefined) {
+            if (payload.totalElements !== undefined) {
                 store.metaForType(type, { totalElements: payload.totalElements });  // sets the metadata for "post"
                 delete payload.totalElements;  // keeps ember data from trying to parse "total" as a record
             }
