@@ -1,6 +1,6 @@
 import config from '../config/environment';
 import RESThubSerializer from './resthub-serializer';
-import JSONSerializer from './json-serializer';
+//import JSONSerializer from './json-serializer';
 import DS from 'ember-data';
 
 
