@@ -1,6 +1,6 @@
 import config from '../config/environment';
 import RESThubSerializer from './resthub-serializer';
-//import JSONSerializer from './json-serializer';
+import DefaultSerializer from './default-serializer';
 import DS from 'ember-data';
 
 
@@ -10,7 +10,7 @@ if (config.environment === 'production') {
     serializer = RESThubSerializer;
 
 } else {
-    serializer = DS.RESTSerializer.extend({});
+    serializer = DefaultSerializer;
 }
 
 export default serializer;
