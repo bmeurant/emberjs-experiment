@@ -4,7 +4,8 @@
     "window": true,
     "-Promise": true,
     "CLDR": true,
-    "moment": true
+    "moment": true,
+    "I18n": true
   },
   "browser" : true,
   "boss" : true,
